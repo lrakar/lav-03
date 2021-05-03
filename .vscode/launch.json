@@ -1,0 +1,46 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Program",
+            "request": "launch",
+            "mainClass": "Program",
+            "projectName": "java_3e0290da"
+        },
+        {
+            "type": "java",
+            "name": "Launch Naloga9",
+            "request": "launch",
+            "mainClass": "vaja4.Naloga9",
+            "projectName": "java_3e0290da"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "java_3e0290da"
+        },
+        {
+            "type": "java",
+            "name": "Launch Naloga7",
+            "request": "launch",
+            "mainClass": "Naloga7",
+            "projectName": "java_3e0290da"
+        },
+        {
+            "type": "java",
+            "name": "Launch Naloga6",
+            "request": "launch",
+            "mainClass": "Naloga6",
+            "projectName": "java_3e0290da"
+        },
+        {
+            "type": "java",
+            "name": "Launch Naloga5",
+            "request": "launch",
+            "mainClass": "Naloga5",
+            "projectName": "java_3e0290da"
+        }
+    ]
+}

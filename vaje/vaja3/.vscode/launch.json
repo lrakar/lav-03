@@ -1,0 +1,55 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch Naloga10",
+            "request": "launch",
+            "mainClass": "Naloga10",
+            "projectName": "vaja3_18c551dc"
+        },
+        {
+            "type": "java",
+            "name": "Launch Naloga11",
+            "request": "launch",
+            "mainClass": "Naloga11",
+            "projectName": "vaja3_18c551dc"
+        },
+        {
+            "type": "java",
+            "name": "Launch Naloga12",
+            "request": "launch",
+            "mainClass": "Naloga12",
+            "projectName": "vaja3_18c551dc"
+        },
+        {
+            "type": "java",
+            "name": "Launch Naloga13",
+            "request": "launch",
+            "mainClass": "Naloga13",
+            "projectName": "vaja3_18c551dc"
+        },
+        {
+            "type": "java",
+            "name": "Launch Naloga9",
+            "request": "launch",
+            "mainClass": "Naloga9",
+            "projectName": "vaja3_18c551dc"
+        },
+        {
+            "type": "java",
+            "name": "Launch Naloga2",
+            "request": "launch",
+            "mainClass": "Naloga2"
+        }
+    ]
+}
