@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Naloga1",
+            "request": "launch",
+            "mainClass": "vaje.vaja7.Naloga1",
+            "projectName": "java_3e0290da"
+        },
+        {
+            "type": "java",
             "name": "Launch Program",
             "request": "launch",
             "mainClass": "Program",
