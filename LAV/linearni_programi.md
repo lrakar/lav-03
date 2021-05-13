@@ -4155,7 +4155,7 @@ public class Naloga1{
 PS C:\java\vaje\vaja9> 
 ```
 # Tabele: sklad
-## realizacija sklada v javi
+## lastna realizacija sklada
 ### koda:
 ```java
 class Sklad{
@@ -4254,4 +4254,200 @@ PS C:\java\LAV>
 ```
 # Tabele: metode razreda arrays
 ## naloga 1
-### koda:    
+### koda:
+```java
+
+import java.util.*;
+public class Naloga1{
+    public static void main(String[] args) { // ← main
+        char[] znaki = new char[100];
+        float[] stevila = new float[100];
+        //test za fill ↓
+        Arrays.fill(znaki, 'A');
+        Arrays.fill(stevila, 12.3f);
+        //test za equals ↓
+        int[] a = new int[100];
+        Arrays.fill(a, 10);
+        int[] b = new int[100];
+        Arrays.fill(b, 11);
+        System.out.println("ista dolzina tabel, razlicne vrednosti:");
+        if(Arrays.equals(a, b)){
+            System.out.println("true");
+        }
+        else{
+            System.out.println("false");
+        }
+        int[] c = new int[10];
+        Arrays.fill(c, 11);
+        int[] d = new int[12];
+        Arrays.fill(d, 11);
+        System.out.println("razlicna dolzina tabel, iste vrednosti:");
+        if(Arrays.equals(c, d)){
+            System.out.println("true");
+        }
+        else{
+            System.out.println("false");
+        }
+        int[] e = new int[100];
+        Arrays.fill(e, 11);
+        int[] f = new int[100];
+        Arrays.fill(f, 11);
+        System.out.println("ista dolzina tabel, iste vrednosti:");
+        if(Arrays.equals(e, f)){
+            System.out.println("true");
+        }
+        else{
+            System.out.println();
+        }
+        // tabela napolnjena z naključnimi vrednostmi
+        int[] TestAr = new int[10];
+        // test copyOfRange
+        Arrays.setAll(TestAr, index-> (int)(Math.random()*6));
+        System.out.println(Arrays.toString(Arrays.copyOf(TestAr, 6)));
+        System.out.println(Arrays.toString(Arrays.copyOfRange(TestAr, 0,(TestAr.length-3))));
+        //  Naredimo lahko kopijo areja, in mu dodamo prazna mesta↓
+        System.out.println(Arrays.toString(Arrays.copyOf(TestAr, 15)));
+
+    }
+
+}
+```
+### output:
+```
+ista dolzina tabel, razlicne vrednosti:
+false
+razlicna dolzina tabel, iste vrednosti:
+false
+ista dolzina tabel, iste vrednosti:
+true
+[4, 2, 5, 1, 4, 3]
+[4, 2, 5, 1, 4, 3, 4]
+[4, 2, 5, 1, 4, 3, 4, 0, 4, 2, 0, 0, 0, 0, 0]
+PS C:\java\vaje\vaja 11> 
+```
+---
+## Naloga 2
+### koda:
+```java
+import java.util.Arrays;
+
+public class Naloga2 {
+    public static void main(String[] args) {
+        int n = Integer.valueOf(args[0]);
+        int[] ar = new int[n];
+        
+        Arrays.setAll(ar, index-> (int)(Math.random()*10));
+        System.out.println(Arrays.toString(ar));
+        Arrays.sort(ar);
+        System.out.println(Arrays.toString(ar));
+    }
+}
+```
+### output:
+```
+PS C:\java\vaje\vaja 11> javac Naloga2.java
+PS C:\java\vaje\vaja 11> java Naloga2 15
+[3, 6, 6, 9, 3, 5, 6, 0, 0, 4, 4, 8, 7, 1, 9]
+[0, 0, 1, 3, 3, 4, 4, 5, 6, 6, 6, 7, 8, 9, 9]
+PS C:\java\vaje\vaja 11> 
+```
+## Naloga 3
+### koda:
+```java
+import java.util.Arrays;
+
+public class Naloga3 {
+    public static void main(String[] args) {
+        int n = Integer.valueOf(args[0]);
+        int[] ar = new int[n];
+        
+        Arrays.setAll(ar, index-> (int)(Math.random()*10));
+        System.out.println(Arrays.toString(ar));
+        Arrays.sort(ar, ((int)(ar.length-1)/3), (((int)(ar.length-1)/3)*(ar.length-1)/3));
+        System.out.println(Arrays.toString(ar));
+    }
+}
+```
+### output:
+```
+PS C:\java\vaje\vaja 11> javac Naloga3.java
+PS C:\java\vaje\vaja 11> java Naloga3 10   
+[5, 4, 3, 7, 5, 4, 2, 7, 5, 9]
+[5, 4, 3, 2, 4, 5, 5, 7, 7, 9]
+PS C:\java\vaje\vaja 11> 
+```
+## Naloga 4
+#### ni tako lahka kot se mi je zdelo na prvi pogled
+### koda:
+```java
+import java.util.*;
+
+public class Naloga4 {
+    public static void main(String[] args) {
+        int n = Integer.valueOf(args[0]);
+        int[] ar = new int[n];
+        int start = 0;
+        int end = 0;
+        Arrays.setAll(ar, index-> (int)(Math.random()*30));
+
+        for(int i = 0; i<ar.length; i++){
+            if((ar[i] == 9) || (ar[i] == 18)){
+                start = i;
+                break;    
+            }
+        }
+
+        int i = start;
+        while(i < ar.length){
+            i++;
+            if((ar[i] == 9) || (ar[i] == 18)){
+                end = i;
+                break;
+            }
+        }
+
+
+
+        System.out.println(Arrays.toString(ar));
+        Arrays.sort(ar, start, end);
+        System.out.println(Arrays.toString(ar));
+    }
+}
+```
+### output:
+```
+PS C:\java\vaje\vaja 11> java Naloga4 20
+[29, 5, 21, 15, 20, 7, 11, 18, 13, 28, 5, 25, 10, 27, 8, 23, 19, 25, 9, 11]
+[29, 5, 21, 15, 20, 7, 11, 5, 8, 10, 13, 18, 19, 23, 25, 25, 27, 28, 9, 11]
+PS C:\java\vaje\vaja 11> 
+```
+# Večrazsežnostne tabele
+## naloga 1
+### koda:
+```java
+class Naloga1{
+
+    public static void main(String[] arg){
+
+       char tab[][]={{‘s’,’o’,’s’,’e’,’d’},{‘o’,’p’,’e’,’r’,’a’},
+                     {‘k’,’r’,’a’,’v’,’a’}};
+
+       v = tab.length;
+       s = tab[0].length;
+       System.out.println(v);
+       System.out.println(s);
+       System.out.println(“Tabela :“+v+“ x “+s);
+    }
+} 
+```
+### output:
+```
+Error...
+```
+### Kako interpretirate rezultate, ki jih program izpiše ? Narišite tabelo tab!
+#### Napake v sintaksi...za char se uporabljajo enojni ravni narekovaji, tabela se definira ```char[][] tab =```...
+##### verjetno zato, ker urejevalniki besedila po svoje obrnejo narekovaje
+### dodano ```int[] s = new int[tab[0].length];```
+### popravljena koda: 
+```java
+
