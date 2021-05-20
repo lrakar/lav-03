@@ -5,14 +5,12 @@ public class Comments {
     public static boolean commentEnabler;
     public static int commentLineCounter;
     public static int commentcounter;
+    public Code myCode = new Code();
+    public PorociloGenerator main = new PorociloGenerator();
+    public Tools tool = new Tools();
 
-    public void set(){
-        public Code myCode = new Code();
-        public PorociloGenerator main = new PorociloGenerator();
-    }
     public void commentChecker(){
-        set();
-        if(izvor.lineCounter == 0){
+        if(myCode.lineCounter == 0){
             Code.argsOnRun = Code.dataOnLine;
             Code.argsOnRun = Code.argsOnRun.replaceAll("// args: ", "");
         }
@@ -26,7 +24,6 @@ public class Comments {
     }
 
     public void writeDownComments(){
-        set();
         if(commentEnabler == true){
             comments = comments + ">" + Code.dataOnLine + "\n";
             commentcounter++;
@@ -34,7 +31,7 @@ public class Comments {
     }
 
     public void writeComments(){
-        set();
-        main.pw.println(comments);
+        tool.make();
+        tool.pw.println(comments);
     }
 }

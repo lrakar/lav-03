@@ -6,11 +6,10 @@ public class Files {
     public static String[] listFiles; // shranimo imena vseh datotek v array
     public static String fileName; // samo ime fajla
     public static boolean zapisiNalogo;
-
+    public Folders myFolders = new Folders();
+    public PorociloGenerator main = new PorociloGenerator();
 
     public void set(){
-        Folders myFolders = new Folders();
-        PorociloGenerator main = new PorociloGenerator();
         listFiles = myFolders.folderPath.list();
         fileName = listFiles[PorociloGenerator.k];
         sumAllFiles = listFiles.length;
@@ -20,7 +19,7 @@ public class Files {
     public void writeJavaFileName(){
         set();
         if(fileName.endsWith(".java") == true){ // v porocilo pisemo samo datoteke s koncnico .java
-            String removeJava = fileName.substring(0, fileName.length() - 5); // v naslovu ne potrebujemo končnice.java
+            public String removeJava = fileName.substring(0, fileName.length() - 5); // v naslovu ne potrebujemo končnice.java
             main.pw.printf("## %s", removeJava); 
             main.pw.println(" ");
             zapisiNalogo = true;

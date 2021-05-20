@@ -1,12 +1,8 @@
 import java.io.*;
-import java.util.*;
-public class Tools {
+public class Write{
     public PrintWriter pw;
 
-    public void make(){
-        Folders myFolders = new Folders();
-        myFolders.getPathsMaster();
-        
+    public void printWriter(){
         try {
             File f = new File("C:\\java\\Porocilo_RSO\\porocilo.md");
             FileWriter fw = new FileWriter(f);
