@@ -14,7 +14,7 @@ public class AutoReport{
 
         wr.printWriter();
         for(int i = 0; i<Folders.listFolders.length; i++){
-            wr.pw.println(Folders.getName(i));
+            wr.pw.println(Folders.getFolderName(i));
         }
         wr.pw.close();
         

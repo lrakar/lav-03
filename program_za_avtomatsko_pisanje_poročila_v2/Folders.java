@@ -14,7 +14,7 @@ public class Folders {
         folderPath = masterdir.toString() + "\\" +folderName;// povemo pot trenutne mape
     }
 
-    public static String getName(int i){
+    public static String getFolderName(int i){
         return "\n# " + listFolders[i].substring(2) + "\n";//substring brez cifer za urejanje (01,02,03)
     }
 }
