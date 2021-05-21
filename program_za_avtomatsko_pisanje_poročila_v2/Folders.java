@@ -17,4 +17,8 @@ public class Folders {
     public static String getFolderName(int i){
         return "\n# " + listFolders[i].substring(2) + "\n";//substring brez cifer za urejanje (01,02,03)
     }
+
+    public static File getFolder(int i){
+        return masterdir.listFiles()[i];
+    }
 }
