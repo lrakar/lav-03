@@ -33,7 +33,7 @@ public class Autoreport{
     }
 
     static void output(int i, int k){
-        String command = "cmd /c cd C:\\java\\vaje_04\\copy && javac Naloga1.java && java Naloga1 15 20";
+        String command = "cmd /c cd C:\\java\\vaje_04\\" + folder.getName() + " && javac "+ myFile.getName() +" && java "+files[k].substring(0, files[k].length() - 5) + " 10 20";
         // String command = "cmd /c cd C:\\java\\vaje_04\\copy";
         // String command = "cmd /c cd C:\\java\\vaje_04\\copy && javac Naloga1.java && java Naloga1 15 20";
         // command[0] = "cmd & ";
@@ -71,44 +71,45 @@ public class Autoreport{
             System.out.println(e);
         }
 
-        output(1,2);
-
-        // folders = new String[masterdir.list().length];
-        // folders = masterdir.list();
-        // for(int i = 0; i<masterdir.list().length; i++){
-        //     comments = null;
-        //     folder = new File("C:\\java\\vaje_04\\" + folders[i]);
-        //     pw.println("# " + folders[i].substring(2));
-        //     files = new String[folder.list().length];
-        //     files = folder.list(); 
-        //     for(int k = 0; k<folder.list().length; k++){
-        //         if(files[k].endsWith(".java") == true){
-        //             pw.println("## " + files[k].substring(0, files[k].length() - 5));
-        //             pw.println("### koda:");
-        //             pw.println("```java");
-        //             myFile = new File("C:\\java\\vaje_04\\" + folders[i] + "\\" + files[k]);
-        //             try{
-        //                 readLine = new Scanner(myFile);
-        //                 while(readLine.hasNextLine()){
-        //                     commentChecker(); //cekiramo komentarje
-        //                     pw.println(readLine.nextLine());
-        //                     lineCounter++;
-        //                 }
-        //             }
-        //             catch (FileNotFoundException e){
-        //                 System.out.println(e);
-        //             }
-        //             pw.println("```");
-        //             pw.println("output: ");
-        //             pw.println("```");
-        //             output(i, k); //napisemo output
-        //             pw.println("```");
-        //             pw.println("Komentarji in odgovori na vprašanja:");
-        //             pw.println(comments);
-        //         }
-                
-        //     }
-        // }
+        folders = new String[masterdir.list().length];
+        folders = masterdir.list();
+        for(int i = 0; i<masterdir.list().length; i++){
+            pw.println("--------------------------FODER--------------------------");
+            pw.println("---------------------------------------------------------");
+            comments = null;
+            folder = new File("C:\\java\\vaje_04\\" + folders[i]);
+            pw.println("# " + folders[i].substring(2));
+            files = new String[folder.list().length];
+            files = folder.list(); 
+            for(int k = 0; k<folder.list().length; k++){
+                if(files[k].endsWith(".java") == true){
+                    pw.println("--------------------------FILE");
+                    pw.println("## " + files[k].substring(0, files[k].length() - 5));
+                    pw.println("### koda:");
+                    pw.println("```java");
+                    myFile = new File("C:\\java\\vaje_04\\" + folders[i] + "\\" + files[k]);
+                    try{
+                        readLine = new Scanner(myFile);
+                        while(readLine.hasNextLine()){
+                            //commentChecker(); //cekiramo komentarje
+                            pw.println(readLine.nextLine());
+                            lineCounter++;
+                        }
+                    }
+                    catch (FileNotFoundException e){
+                        System.out.println(e);
+                    }
+                    pw.println("```");
+                    pw.println("output: ");
+                    pw.println("```");
+                    output(i, k); //napisemo output
+                    pw.println("```");
+                    pw.println("Komentarji in odgovori na vprašanja:");
+                    pw.println(comments);
+                }
+             
+            }
+        }
         pw.close();
 
     }
