@@ -2,11 +2,8 @@
 // author: Lovro Rakar
 // menthor: Marko Kastelic
 /*<StartComments>
-Testni komentar 1
-Testni Komentar 2
-To je testni odgovor na vprašanje, ki vsebuje tudi neko obrazložitev```int k = 0``` in tako...
 </endComments>*/
-import java.util.*;
+
 public class Naloga1{
     static int a = 0;
     static int b = 0;

@@ -31,17 +31,8 @@ public class Autoreport{
         }
         
     }
-
     static void output(int i, int k){
-        String command = "cmd /c cd C:\\java\\vaje_04\\" + folder.getName() + " && javac "+ myFile.getName() +" && java "+files[k].substring(0, files[k].length() - 5) + " 10 20";
-        // String command = "cmd /c cd C:\\java\\vaje_04\\copy";
-        // String command = "cmd /c cd C:\\java\\vaje_04\\copy && javac Naloga1.java && java Naloga1 15 20";
-        // command[0] = "cmd & ";
-        // command[1] = "";
-        // command[2] = "cd " + sd;
-        // {"cmd", "/c", "cd " + "C:\\java\\vaje_04\\" + folders[i], 
-        // "/c", "javac" + files[k], 
-        // "/c", "java" + files[k] + argsOnRun};
+        String command = "cmd /c cd C:\\java\\vaje_04\\" + folder.getName() + " && javac "+ myFile.getName() +" && java "+files[k].substring(0, files[k].length() - 5) + argsOnRun;
         try{
             Process myProcess = Runtime.getRuntime().exec(command);
             
@@ -91,7 +82,7 @@ public class Autoreport{
                     try{
                         readLine = new Scanner(myFile);
                         while(readLine.hasNextLine()){
-                            //commentChecker(); //cekiramo komentarje
+                            commentChecker(); //cekiramo komentarje
                             pw.println(readLine.nextLine());
                             lineCounter++;
                         }
