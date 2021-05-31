@@ -42,6 +42,15 @@ public class Naloga1{
 }
 
 ```
+## Output 
+```java
+11 
+12 
+13 
+14 
+
+```
+
 
 ## Naloga2.java
 ```java
@@ -86,9 +95,14 @@ public class Naloga2 {
 }
 
 ```
-[2, 9, 4, 4, 9, 6, 9, 3, 7, 1, 7, 1, 3, 8, 5, 5, 7, 3, 5, 3, 7, 6, 5, 10, 8, 9, 7, 10, 7, 2, 7, 3, 2, 4, 9, 3, 6, 8, 3, 1, 0]
-[0, 1, 3, 8, 6, 3, 9, 4, 2, 3, 7, 2, 7, 10, 7, 9, 8, 10, 5, 6, 7, 3, 5, 3, 7, 5, 5, 8, 3, 1, 7, 1, 7, 3, 9, 6, 9, 4, 4, 9, 2]
-vsebina ni palindromistična
+## Output 
+```java
+[4, 4, 1, 3, 3, 4, 9, 4, 8, 4, 9, 7, 8, 1, 9, 9, 4, 2, 8, 7, 9, 9, 10, 5, 3, 6, 10, 5, 10, 5, 8, 4, 2, 9, 6, 8, 3, 5, 4, 1, 0] 
+[0, 1, 4, 5, 3, 8, 6, 9, 2, 4, 8, 5, 10, 5, 10, 6, 3, 5, 10, 9, 9, 7, 8, 2, 4, 9, 9, 1, 8, 7, 9, 4, 8, 4, 9, 4, 3, 3, 1, 4, 4] 
+vsebina ni palindromistična 
+
+```
+
 
 ## Naloga3.java
 ```java
@@ -126,8 +140,13 @@ public class Naloga3 {
     }
 }
 ```
-[8, 4, 6, 2, 4, 0, 2, 2, 8, 0]
-minimum je:0
+## Output 
+```java
+[3, 9, 1, 8, 0, 6, 7, 9, 2, 0] 
+minimum je:0 
+
+```
+
 
 ## Naloga4.java
 ```java
@@ -168,16 +187,21 @@ public class Naloga4 {
     }
 }
 ```
-10 10 10 10 10 10 10 10 10 10 
-10 10 10 10 10 10 10 10 10 10 
-10 10 10 10 10 10 10 10 10 10 
-10 10 10 10 10 10 10 10 10 10 
-10 10 10 10 10 10 10 10 10 10 
-10 10 10 10 10 10 10 10 10 10 
-10 10 10 10 10 10 10 10 10 10 
-10 10 10 10 10 10 10 10 10 10 
-10 10 10 10 10 10 10 10 10 10 
-10 10 10 10 10 10 10 10 10 10 
+## Output 
+```java
+10 10 10 10 10 10 10 10 10 10  
+10 10 10 10 10 10 10 10 10 10  
+10 10 10 10 10 10 10 10 10 10  
+10 10 10 10 10 10 10 10 10 10  
+10 10 10 10 10 10 10 10 10 10  
+10 10 10 10 10 10 10 10 10 10  
+10 10 10 10 10 10 10 10 10 10  
+10 10 10 10 10 10 10 10 10 10  
+10 10 10 10 10 10 10 10 10 10  
+10 10 10 10 10 10 10 10 10 10  
+
+```
+
 
 ## Naloga5.java
 ```java
@@ -222,10 +246,15 @@ class StringGenPalindr{
     }
 }
 ```
-string palindrom: 
-iiiiiiiiii
-int palindrom: 
-3333
+## Output 
+```java
+string palindrom:  
+iiiiiiiiii 
+int palindrom:  
+3333 
+
+```
+
 
 ## Naloga6.java
 ```java
@@ -255,7 +284,12 @@ class Find{
 }
 
 ```
-4
+## Output 
+```java
+4 
+
+```
+
 
 ## Naloga7.java
 ```java
@@ -301,10 +335,15 @@ class Obrni{
     }
 }
 ```
-12345
-54321
-Ceni plačo maneken, a moč alpinec.
-.cenipla čom a ,enkenam očalp ineC
+## Output 
+```java
+12345 
+54321 
+Ceni plačo maneken, a moč alpinec. 
+.cenipla čom a ,enkenam očalp ineC 
+
+```
+
 
 ## Naloga8.java
 ```java
@@ -329,7 +368,12 @@ public class Naloga8 {
     }
 }
 ```
-4
+## Output 
+```java
+4 
+
+```
+
 
 ## Naloga9.java
 ```java
@@ -354,7 +398,12 @@ public class Naloga9 {
     }
 }
 ```
-119750400
+## Output 
+```java
+119750400 
+
+```
+
 
 # Rekurzivni postopki utrjevanje
 ## Naloga1.java
@@ -382,72 +431,77 @@ public class Naloga1{
     }
 }
 ```
-Dajte mi zrna za vsako polje na šahovnici.
-1
-2
-4
-8
-16
-32
-64
-128
-256
-512
-1024
-2048
-4096
-8192
-16384
-32768
-65536
-131072
-262144
-524288
-1048576
-2097152
-4194304
-8388608
-16777216
-33554432
-67108864
-134217728
-268435456
-536870912
-1073741824
-2147483648
-4294967296
-8589934592
-17179869184
-34359738368
-68719476736
-137438953472
-274877906944
-549755813888
-1099511627776
-2199023255552
-4398046511104
-8796093022208
-17592186044416
-35184372088832
-70368744177664
-140737488355328
-281474976710656
-562949953421312
-1125899906842624
-2251799813685248
-4503599627370496
-9007199254740992
-18014398509481984
-36028797018963968
-72057594037927936
-144115188075855872
-288230376151711744
-576460752303423488
-1152921504606846976
-2305843009213693952
-4611686018427387904
--9223372036854775808
-error 404: ni toliko pšeničnih zrnc na zemlji
+## Output 
+```java
+Dajte mi zrna za vsako polje na šahovnici. 
+1 
+2 
+4 
+8 
+16 
+32 
+64 
+128 
+256 
+512 
+1024 
+2048 
+4096 
+8192 
+16384 
+32768 
+65536 
+131072 
+262144 
+524288 
+1048576 
+2097152 
+4194304 
+8388608 
+16777216 
+33554432 
+67108864 
+134217728 
+268435456 
+536870912 
+1073741824 
+2147483648 
+4294967296 
+8589934592 
+17179869184 
+34359738368 
+68719476736 
+137438953472 
+274877906944 
+549755813888 
+1099511627776 
+2199023255552 
+4398046511104 
+8796093022208 
+17592186044416 
+35184372088832 
+70368744177664 
+140737488355328 
+281474976710656 
+562949953421312 
+1125899906842624 
+2251799813685248 
+4503599627370496 
+9007199254740992 
+18014398509481984 
+36028797018963968 
+72057594037927936 
+144115188075855872 
+288230376151711744 
+576460752303423488 
+1152921504606846976 
+2305843009213693952 
+4611686018427387904 
+-9223372036854775808 
+error 404: ni toliko pšeničnih zrnc na zemlji 
+
+```
+
 
 ## Naloga2.java
 ```java
@@ -486,7 +540,12 @@ public class Naloga2 {
 
 }
 ```
-vnesi željeni n v zaporedju
+## Output 
+```java
+vnesi željeni n v zaporedju 
+
+```
+
 
 ## Naloga3.java
 ```java
@@ -527,7 +586,12 @@ public class Naloga3{
 
 }
 ```
-koliko členov zaporedja želite?
+## Output 
+```java
+koliko členov zaporedja želite? 
+
+```
+
 
 ## Naloga4.java
 ```java
@@ -539,6 +603,11 @@ s tem zaporedjem sem se matral 2 uri, na koncu sem šel na The On-Line Encyclope
 zaporedje, ki ga ne morem ugotoviti je: 1, 3, 5, 3, 1, 15, 29, 3
 </endComments>*/
 ```
+## Output 
+```java
+
+```
+
 
 ## Naloga5.java
 ```java
@@ -572,7 +641,12 @@ class Zaporedje{
     }
 }
 ```
-1, 3, 0
+## Output 
+```java
+1, 3, 0 
+
+```
+
 
 # Dedovanje razredov
 ## ArduinoPrimer.java
@@ -677,12 +751,17 @@ class CustomModule extends ArduinoBase  {
 
 
 ```
-I am arduino base with a wifi module
-I am arduino base with midi module
-I am arduino base with custom module
-1
-2
-3
+## Output 
+```java
+I am arduino base with a wifi module 
+I am arduino base with midi module 
+I am arduino base with custom module 
+1 
+2 
+3 
+
+```
+
 
 # GUI vaje
 ## Naloga1.java
@@ -725,6 +804,11 @@ public class Naloga1 extends Application{
 }
 
 ```
+## Output 
+```java
+
+```
+
 
 ## Naloga2.java
 ```java
@@ -775,6 +859,11 @@ public class Naloga2 extends Application implements EventHandler<ActionEvent>{
 }
 
 ```
+## Output 
+```java
+
+```
+
 
 ## Naloga3.java
 ```java
@@ -813,6 +902,11 @@ public class Naloga3 extends Application{
     }
 }
 ```
+## Output 
+```java
+
+```
+
 
 ## Naloga4.java
 ```java
@@ -863,6 +957,11 @@ public class Naloga4 extends Application{
     }
 }
 ```
+## Output 
+```java
+
+```
+
 
 ## Naloga5.java
 ```java
@@ -915,4 +1014,9 @@ public class Naloga5 extends Application{
 
 }
 ```
+## Output 
+```java
+
+```
+
 

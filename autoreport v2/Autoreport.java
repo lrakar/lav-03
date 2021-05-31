@@ -37,11 +37,12 @@ public class Autoreport{
                     
                     // Print code from file
                     String filePath = folderPath + "\\" + fileName;
-                    String code = getCode(filePath);
+                    String fileContent = readFile(filePath);
+                    String code = formatCode(fileContent);
                     porociloWriter.println(code);
 
                     // Compile code file, run it and print output
-                    String output = getOutput(folderPath, fileName, filePath);
+                    String output = getOutput(folderPath, fileName, fileContent);
                     porociloWriter.println(output);
                 }
             
@@ -74,55 +75,56 @@ public class Autoreport{
         else return false;
     }
 
-    public static String getCode(String filePath) throws IOException{
+    public static String readFile(String filePath) throws IOException {
         Scanner fileScanner = new Scanner(new File(filePath));
-        String fileContent = "```java\n";
+        String fileContent = "";
 
         while(fileScanner.hasNextLine()){
             fileContent += fileScanner.nextLine() + "\n";
         }
         fileScanner.close();
+        return fileContent;
+    }
 
+    public static String formatCode(String fileContent) {
+        fileContent = "```java\n" + fileContent;
         fileContent += "```";
         return fileContent;
     }
     
-    public static String getOutput(String folderPath, String fileName, String filePath) throws IOException {
+    public static String getOutput(String folderPath, String fileName, String fileContent) throws IOException {
         String openTerminal = "cmd /c ";
         String navigateFile = "cd " + folderPath + " && ";
         String compileFile = "javac " + fileName + " && ";
-        String runFile = "java " + fileName.substring(0, fileName.length()-5);
-        String arguments = getArgumentsFromCodeComments(filePath);
+        String runFile = "java " + fileName.substring(0, fileName.length()-5) + " ";
+        String arguments = getCommentArguments(fileContent);
         String command = openTerminal + navigateFile + compileFile + runFile + arguments;
  
         Process process = Runtime.getRuntime().exec(command);
     
-        BufferedWriter writer = new BufferedWriter(
-                new OutputStreamWriter(process.getOutputStream()));
-        writer.write("09-20-14");
+        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(process.getOutputStream()));
         writer.close();
     
         BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
 
-        String output = "";
+        String output = "## Output \n```java\n";
         String line;
         while ((line = reader.readLine()) != null) {
-            output += line + "\n";
+            output += line + " \n";
         }
         reader.close();
+        output += "\n```\n\n";
 
         return output;
     }
 
-    public static String getArgumentsFromCodeComments(String filePath) throws IOException {
-        Scanner fileScanner = new Scanner(new File(filePath));
-        String argumentsLine = fileScanner.nextLine();
-        fileScanner.close();
-        int indexOfStartInput = argumentsLine.indexOf("// args: ");
+    public static String getCommentArguments(String fileContent) throws IOException {
+        int indexOfStartInput = fileContent.indexOf("// args: ") + 9;
+        int endOfLine = fileContent.indexOf("\n");
 
         String arguments = "";
-        if (indexOfStartInput > 0){
-            arguments = argumentsLine.substring(indexOfStartInput);
+        if (indexOfStartInput > 0 && endOfLine > 0){
+            arguments = fileContent.substring(indexOfStartInput, endOfLine);
         }
 
         return arguments;
