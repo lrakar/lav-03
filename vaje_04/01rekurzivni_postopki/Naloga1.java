@@ -3,7 +3,6 @@
 // menthor: Marko Kastelic
 /*<StartComments>
 </endComments>*/
-
 public class Naloga1{
     static int a = 0;
     static int b = 0;

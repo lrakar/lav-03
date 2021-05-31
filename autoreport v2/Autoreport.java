@@ -44,12 +44,15 @@ public class Autoreport{
                     // Compile code file, run it and print output
                     String output = getOutput(folderPath, fileName, fileContent);
                     porociloWriter.println(output);
+
+                    // Print comments
+                    String mainComment = getMainComment(fileContent);
+                    porociloWriter.println(mainComment);
                 }
             
                 System.out.println("Finished " + fileName);
             }
 
-            // Print comments
             System.out.println("Finished " + folderPath);
         }
         porociloWriter.close();
@@ -87,6 +90,8 @@ public class Autoreport{
     }
 
     public static String formatCode(String fileContent) {
+        int codeStart = fileContent.indexOf("*/") + 3;
+        fileContent = fileContent.substring(codeStart);
         fileContent = "```java\n" + fileContent;
         fileContent += "```";
         return fileContent;
@@ -118,7 +123,7 @@ public class Autoreport{
         return output;
     }
 
-    public static String getCommentArguments(String fileContent) throws IOException {
+    public static String getCommentArguments(String fileContent) {
         int indexOfStartInput = fileContent.indexOf("// args: ") + 9;
         int endOfLine = fileContent.indexOf("\n");
 
@@ -128,5 +133,44 @@ public class Autoreport{
         }
 
         return arguments;
+    }
+
+    public static String getCommentAuthor(String fileContent) {
+        int indexOfStartInput = fileContent.indexOf("// author: ") + 11;
+        int endOfLine = fileContent.indexOf("\n");
+
+        String author = "";
+        if (indexOfStartInput > 0 && endOfLine > 0){
+            author = fileContent.substring(indexOfStartInput, endOfLine);
+        }
+
+        return author;
+    }
+
+    public static String getCommentMentor(String fileContent) {
+        int indexOfStartInput = fileContent.indexOf("// menthor: ") + 12;
+        int endOfLine = fileContent.indexOf("\n");
+
+        String menthor = "";
+        if (indexOfStartInput > 0 && endOfLine > 0){
+            menthor = fileContent.substring(indexOfStartInput, endOfLine);
+        }
+
+        return menthor;
+    }
+
+    public static String getMainComment(String fileContent) {
+        String startString = "/*<StartComments>";
+        String endString = "</endComments>*/";
+        int indexOfStartInput = fileContent.indexOf(startString) + startString.length();
+        int endOfLine = fileContent.indexOf(endString);
+
+        String comment = "";
+        if (indexOfStartInput > 0 && endOfLine > 0){
+            comment = fileContent.substring(indexOfStartInput, endOfLine);
+            comment = "## Comment \n" + comment.replaceAll("\n", ">\n");
+        }
+
+        return comment;
     }
 }
