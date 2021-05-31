@@ -16,10 +16,15 @@ public class Autoreport{
         File masterdir = new File(masterDirPath);
         PrintWriter porociloWriter = new PrintWriter(new FileWriter(porociloFile));
 
+        // Print initial information
+        String info = "#### Author: Lovro Rakar \n #### Menthor: Marko Kastelic \n #### Version: 3.0.0.0";
+        porociloWriter.println(info);
+
         String[] folders = masterdir.list();
         for(int i = 0; i<masterdir.list().length; i++){
             String folderPath = masterDirPath + "\\" + folders[i];
             File folder = new File(folderPath);
+
 
             // Print folder title
             String title = formatTitle(folders[i]);
@@ -48,6 +53,7 @@ public class Autoreport{
                     // Print comments
                     String mainComment = getMainComment(fileContent);
                     porociloWriter.println(mainComment);
+                    porociloWriter.println("---");
                 }
             
                 System.out.println("Finished " + fileName);
@@ -135,30 +141,6 @@ public class Autoreport{
         return arguments;
     }
 
-    public static String getCommentAuthor(String fileContent) {
-        int indexOfStartInput = fileContent.indexOf("// author: ") + 11;
-        int endOfLine = fileContent.indexOf("\n");
-
-        String author = "";
-        if (indexOfStartInput > 0 && endOfLine > 0){
-            author = fileContent.substring(indexOfStartInput, endOfLine);
-        }
-
-        return author;
-    }
-
-    public static String getCommentMentor(String fileContent) {
-        int indexOfStartInput = fileContent.indexOf("// menthor: ") + 12;
-        int endOfLine = fileContent.indexOf("\n");
-
-        String menthor = "";
-        if (indexOfStartInput > 0 && endOfLine > 0){
-            menthor = fileContent.substring(indexOfStartInput, endOfLine);
-        }
-
-        return menthor;
-    }
-
     public static String getMainComment(String fileContent) {
         String startString = "/*<StartComments>";
         String endString = "</endComments>*/";
@@ -168,7 +150,12 @@ public class Autoreport{
         String comment = "";
         if (indexOfStartInput > 0 && endOfLine > 0){
             comment = fileContent.substring(indexOfStartInput, endOfLine);
-            comment = "## Comment \n" + comment.replaceAll("\n", ">\n");
+            if (comment.length() < 2){
+                comment = "";
+            }
+            else{
+                comment = "## Comment \n" + comment.replaceAll("\n", "\n>");
+            }
         }
 
         return comment;
