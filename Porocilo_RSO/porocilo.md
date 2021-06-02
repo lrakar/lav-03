@@ -91,8 +91,8 @@ public class Naloga2 {
 ```
 ## Output 
 ```java
-[2, 7, 7, 2, 2, 9, 4, 2, 8, 4, 5, 2, 9, 1, 1, 1, 3, 9, 4, 6, 10, 4, 8, 6, 7, 10, 3, 7, 2, 8, 1, 6, 4, 7, 4, 1, 3, 8, 7, 4, 0] 
-[0, 4, 7, 8, 3, 1, 4, 7, 4, 6, 1, 8, 2, 7, 3, 10, 7, 6, 8, 4, 10, 6, 4, 9, 3, 1, 1, 1, 9, 2, 5, 4, 8, 2, 4, 9, 2, 2, 7, 7, 2] 
+[6, 7, 5, 8, 6, 7, 5, 5, 8, 8, 2, 2, 9, 4, 9, 10, 8, 2, 9, 6, 1, 9, 2, 1, 7, 9, 7, 7, 1, 7, 2, 5, 2, 10, 10, 3, 8, 1, 3, 9, 0] 
+[0, 9, 3, 1, 8, 3, 10, 10, 2, 5, 2, 7, 1, 7, 7, 9, 7, 1, 2, 9, 1, 6, 9, 2, 8, 10, 9, 4, 9, 2, 2, 8, 8, 5, 5, 7, 6, 8, 5, 7, 6] 
 vsebina ni palindromistična 
 
 ```
@@ -133,7 +133,7 @@ public class Naloga3 {
 ```
 ## Output 
 ```java
-[5, 6, 1, 3, 4, 9, 8, 6, 7, 0] 
+[6, 8, 7, 4, 1, 2, 9, 9, 9, 0] 
 minimum je:0 
 
 ```
@@ -977,6 +977,43 @@ public class Naloga5 extends Application{
 ```
 ## Output 
 ```java
+
+```
+
+
+
+---
+# Povezava z SQL strežnikom
+## Naloga1.java
+```java
+import java.sql.*;
+
+public class Naloga1{
+    // Connect to your database.
+    public static void main(String[] args) {
+        System.out.println("hello");
+        String connectionUrl =
+                "jdbc:mysql://localhost:3306;"
+                        + "database=lovronet;"
+                        + "user=root;"
+                        + "password=;";
+        ResultSet resultSet = null;
+        try (Connection connection = DriverManager.getConnection(connectionUrl);) {
+            String selectSql = "SELECT * FROM uporabniki";
+            while (resultSet.next()) {
+                System.out.println(resultSet.getString(2) + " " + resultSet.getString(3));
+            }
+        }
+        // Handle any errors that may have occurred.
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+## Output 
+```java
+hello 
 
 ```
 
