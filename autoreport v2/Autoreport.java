@@ -1,18 +1,10 @@
 import java.io.*;
 import java.util.*;
 public class Autoreport{
-    static String comments;
-    static File myFile;
-    static String[] files;
-    static PrintWriter pw;
-    static Scanner readLine;
-    static int lineCounter = 0;
-    static String argsOnRun;
-    static boolean commentEnabler;
+    static String masterDirPath = "C:\\java\\vaje_04";
+    static File porociloFile = new File("C:\\java\\Porocilo_RSO\\porocilo.md");
 
     public static void main(String[] args) throws IOException {
-        String masterDirPath = "C:\\java\\vaje_04";
-        File porociloFile = new File("C:\\java\\Porocilo_RSO\\porocilo.md");
         File masterdir = new File(masterDirPath);
         PrintWriter porociloWriter = new PrintWriter(new FileWriter(porociloFile));
 
@@ -25,7 +17,6 @@ public class Autoreport{
             String folderPath = masterDirPath + "\\" + folders[i];
             File folder = new File(folderPath);
 
-
             // Print folder title
             String title = formatTitle(folders[i]);
             porociloWriter.println(title);
@@ -33,27 +24,9 @@ public class Autoreport{
             String[] files = folder.list();
             for(int j=0; j<files.length; j++){
                 String fileName = files[j];
-                String fileTitle = formatFileTitle(fileName);
                 
-                // Print code
                 if (isCodeFile(fileName)){
-                    // Print file title
-                    porociloWriter.println(fileTitle);
-                    
-                    // Print code from file
-                    String filePath = folderPath + "\\" + fileName;
-                    String fileContent = readFile(filePath);
-                    String code = formatCode(fileContent);
-                    porociloWriter.println(code);
-
-                    // Compile code file, run it and print output
-                    String output = getOutput(folderPath, fileName, fileContent);
-                    porociloWriter.println(output);
-
-                    // Print comments
-                    String mainComment = getMainComment(fileContent);
-                    porociloWriter.println(mainComment);
-                    porociloWriter.println("---");
+                    printFileToPorocilo(porociloWriter, folderPath, fileName);
                 }
             
                 System.out.println("Finished " + fileName);
@@ -63,7 +36,7 @@ public class Autoreport{
         }
         porociloWriter.close();
     }
-
+    
     public static String formatTitle(String title) {
         title = title.substring(2);
         String firstLetter = title.substring(0, 1).toUpperCase();
@@ -72,16 +45,37 @@ public class Autoreport{
         return title;
     }
 
+    public static Boolean isCodeFile(String fileName) {
+        if (fileName.endsWith(".java")) return true;
+        else return false;
+    }
+
+    public static void printFileToPorocilo(PrintWriter porociloWriter, String folderPath, String fileName) throws IOException {
+        // Print file title
+        String fileTitle = formatFileTitle(fileName);
+        porociloWriter.println(fileTitle);
+        
+        // Print code from file
+        String filePath = folderPath + "\\" + fileName;
+        String fileContent = readFile(filePath);
+        String code = formatCode(fileContent);
+        porociloWriter.println(code);
+
+        // Compile code file, run it and print output
+        String output = getOutput(folderPath, fileName, fileContent);
+        porociloWriter.println(output);
+
+        // Print comments
+        String mainComment = getMainComment(fileContent);
+        porociloWriter.println(mainComment);
+        porociloWriter.println("---");
+    }
+
     public static String formatFileTitle(String title) {
         String firstLetter = title.substring(0, 1).toUpperCase();
         title = firstLetter + title.substring(1);
         title = "## " + title;
         return title;
-    }
-
-    public static Boolean isCodeFile(String fileName) {
-        if (fileName.endsWith(".java")) return true;
-        else return false;
     }
 
     public static String readFile(String filePath) throws IOException {
